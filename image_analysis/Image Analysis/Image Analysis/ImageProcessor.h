@@ -13,6 +13,8 @@
 
 #include <opencv/cv.h>>
 
+#include <stdint.h>
+
 class ImageProcessor {
 private:
 
@@ -22,8 +24,10 @@ public:
 	ImageProcessor();
 	~ImageProcessor();
 
+	void DetectDominantColor(const cv::Mat& img);
 
 
+	int32_t MAX_VAL;
 };
 
 
