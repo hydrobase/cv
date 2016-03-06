@@ -1,0 +1,20 @@
+#!/usr/bin/env
+
+# Robin Kalia
+# robinkalia@berkeley.edu
+# capture_preview_test.py: Contains the code for setting parameters in preview stage before capturing image
+
+import time
+import picamera
+
+with picamera.PiCamera() as camera:
+    camera.resolution = (1280, 720)
+    camera.start_preview()
+    camera.exposure_compensation = 2
+    camera.exposure_mode = 'spotlight'
+    camera.meter_mode = 'matrix'
+    camera.image_effect = 'gpen'
+    # Give the camera some time to adjust to conditions
+    time.sleep(2)
+    camera.capture('foo.jpg')
+    camera.stop_preview()
